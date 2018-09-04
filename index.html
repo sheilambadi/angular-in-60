@@ -1,0 +1,45 @@
+<html ng-app="demoApp">
+<head>
+  <meta charset="UTF-8" />
+  <title>Document</title>
+</head>
+<body>
+    <div>
+        <div ng-view=""></div>
+    </div>
+
+</body>
+<script type="text/javascript" src="./node_modules/angular/angular.js"></script>
+<script type="text/javascript" src="./node_modules/angular-route/angular-route.js"></script>
+<script>
+        var demoApp = angular.module('demoApp', ['ngRoute']);
+
+        demoApp.config(function ($routeProvider){
+            $routeProvider
+            .when('/view1', {
+                controller:'SimpleController',
+                templateUrl:'partials/view1.html'
+            })
+            .when('/view2', {
+                controller:'SimpleController',
+                templateUrl:'partials/view2.html'
+            })
+            .otherwise({redirectTo: '/view1'});
+        });
+    
+        demoApp.controller('SimpleController', SimpleController);
+    
+        function SimpleController($scope){
+            $scope.people = [
+                    {name:'Sheila Mbadi', city:'Nairobi'}, 
+                    {name:'Steve Oyaro', city:'Malaba'},
+                    {name:'Eva Watiri', city:'Muranga'}
+                        ];
+
+            $scope.addCustomer = function(){
+                $scope.people.push({name:$scope.newCust.name, city:$scope.newCust.city});
+                };
+            }
+</script>
+
+</html>

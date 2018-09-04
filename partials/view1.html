@@ -1,0 +1,24 @@
+<div class="container">
+    <h2>Routes</h2>
+    Name:
+    <br/>
+    <input type="text" ng-model="filter.name"/>
+    <br/>
+    <ul>
+        <li ng-repeat="cust in people | filter:filter.name | orderBy:'city'"> {{ cust.name | uppercase}} - {{cust.city | lowercase}}</li>
+    </ul>
+    <br/>
+    Customer name:
+    <br/>
+    <input type="text" ng-model="newCust.name"/>
+
+    <br/>
+    Customer city:
+    <br/>
+    <input type="text" ng-model="newCust.city"/>
+    <br/>
+    <button ng-click="addCustomer()">Add new customer</button>
+    <br/>
+    <a href="#/view2">View 2</a>
+    
+</div>

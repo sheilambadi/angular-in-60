@@ -1,0 +1,15 @@
+{
+  "name": "spa",
+  "version": "1.0.0",
+  "description": "Single Page Angular App",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "angular": "^1.7.3",
+    "angular-route": "^1.7.3"
+  }
+}

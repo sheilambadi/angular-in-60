@@ -1,0 +1,30 @@
+<div>
+        <h1>Learning Angular</h1>
+        <h2> Two Way Data Binding </h3>
+        Name:
+        <br/>
+        <input type="text" ng-model="name"/> {{name}}
+    
+        <h2>Loops using ng-repeat</h2>
+        <div ng-init="names=['Sheila Mbadi', 'Steve Oyaro', 'Eva Watiri', 'Isaac Nyangolo']">
+            <ul>
+                <li ng-repeat="personName in names"> {{personName}} </li>
+            </ul>
+        </div>
+    
+        <h2>Filters</h2>
+        <input type="text" ng-model="custName"/>
+        <div ng-init="customers=[{name:'Sheila Mbadi', city:'Nairobi'}, {name:'Steve Oyaro', city:'Malaba'}, {name:'Eva Watiri', city:'Muranga'}]">
+            <ul>
+                <li ng-repeat="cust in customers | filter:custName | orderBy:'city'"> {{ cust.name | uppercase}} - {{cust.city | lowercase}}</li>
+            </ul>
+        </div>
+    
+        <h2>Controller</h2>
+        <div ng-controller="SimpleController">
+            <ul>
+                <li ng-repeat="person in people | orderBy:'city'"> {{person.name | uppercase}} - {{person.city}} </li>
+            </ul>
+    
+        </div>
+</div>
