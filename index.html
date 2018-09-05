@@ -36,6 +36,8 @@
 
             var factory = {};
 
+            // Function expression - named or anonymous function
+            // Not hoisted thus can't be used before it's defined
             factory.getCustomers = function(){
                 return customers;
             }
@@ -52,6 +54,8 @@
             init();
 
             // method to initialize data
+            // Define a function - Function Declaration
+            // Hoisted so can be used before it is defined
             function init(){
                 $scope.people = simpleFactory.getCustomers();
             }
