@@ -26,15 +26,35 @@
             })
             .otherwise({redirectTo: '/view1'});
         });
+
+        demoApp.factory('simpleFactory', function(){
+            var customers = [
+            {name:'Sheila Mbadi', city:'Nairobi'}, 
+            {name:'Steve Oyaro', city:'Malaba'},
+            {name:'Eva Watiri', city:'Muranga'}
+                ];
+
+            var factory = {};
+
+            factory.getCustomers = function(){
+                return customers;
+            }
+
+            return factory;
+
+        });
     
         demoApp.controller('SimpleController', SimpleController);
     
-        function SimpleController($scope){
-            $scope.people = [
-                    {name:'Sheila Mbadi', city:'Nairobi'}, 
-                    {name:'Steve Oyaro', city:'Malaba'},
-                    {name:'Eva Watiri', city:'Muranga'}
-                        ];
+        function SimpleController($scope, simpleFactory){
+            $scope.people = [];
+
+            init();
+
+            // method to initialize data
+            function init(){
+                $scope.people = simpleFactory.getCustomers();
+            }
 
             $scope.addCustomer = function(){
                 $scope.people.push({name:$scope.newCust.name, city:$scope.newCust.city});

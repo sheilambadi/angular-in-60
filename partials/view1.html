@@ -4,6 +4,8 @@
     <br/>
     <input type="text" ng-model="filter.name"/>
     <br/>
+
+    <h2>Factory</h2>
     <ul>
         <li ng-repeat="cust in people | filter:filter.name | orderBy:'city'"> {{ cust.name | uppercase}} - {{cust.city | lowercase}}</li>
     </ul>
