@@ -11,59 +11,8 @@
 </body>
 <script type="text/javascript" src="./node_modules/angular/angular.js"></script>
 <script type="text/javascript" src="./node_modules/angular-route/angular-route.js"></script>
-<script>
-        var demoApp = angular.module('demoApp', ['ngRoute']);
-
-        demoApp.config(function ($routeProvider){
-            $routeProvider
-            .when('/view1', {
-                controller:'SimpleController',
-                templateUrl:'partials/view1.html'
-            })
-            .when('/view2', {
-                controller:'SimpleController',
-                templateUrl:'partials/view2.html'
-            })
-            .otherwise({redirectTo: '/view1'});
-        });
-
-        demoApp.factory('simpleFactory', function(){
-            var customers = [
-            {name:'Sheila Mbadi', city:'Nairobi'}, 
-            {name:'Steve Oyaro', city:'Malaba'},
-            {name:'Eva Watiri', city:'Muranga'}
-                ];
-
-            var factory = {};
-
-            // Function expression - named or anonymous function
-            // Not hoisted thus can't be used before it's defined
-            factory.getCustomers = function(){
-                return customers;
-            }
-
-            return factory;
-
-        });
-    
-        demoApp.controller('SimpleController', SimpleController);
-    
-        function SimpleController($scope, simpleFactory){
-            $scope.people = [];
-
-            init();
-
-            // method to initialize data
-            // Define a function - Function Declaration
-            // Hoisted so can be used before it is defined
-            function init(){
-                $scope.people = simpleFactory.getCustomers();
-            }
-
-            $scope.addCustomer = function(){
-                $scope.people.push({name:$scope.newCust.name, city:$scope.newCust.city});
-                };
-            }
-</script>
+<script type="text/javascript" src="./app.js"></script>
+<script type="text/javascript" src="./factory/factory.js"></script>
+<script type="text/javascript" src="./controller/controller.js"></script>
 
 </html>
